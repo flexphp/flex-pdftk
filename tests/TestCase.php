@@ -1,6 +1,12 @@
-<?php
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/*
+ * This file is part of FlexPHP.
+ *
+ * (c) Freddie Gar <freddie.gar@outlook.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace Tests;
 
 use DI\ContainerBuilder;
@@ -17,13 +23,16 @@ use Slim\Psr7\Uri;
 class TestCase extends PHPUnit_TestCase
 {
     /**
-     * @return App
      * @throws Exception
      */
     protected function getAppInstance(): App
     {
         // Instantiate PHP-DI ContainerBuilder
         $containerBuilder = new ContainerBuilder();
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . \DIRECTORY_SEPARATOR . '..');
+        $dotenv->load();
+        $dotenv->required(['PDFTK_PATH']);
+        $_ENV['APP_ENV'] = 'testing';
 
         // Container intentionally not compiled for tests.
 
@@ -45,6 +54,7 @@ class TestCase extends PHPUnit_TestCase
         // Instantiate the app
         AppFactory::setContainer($container);
         $app = AppFactory::create();
+        $app->setBasePath('/');
 
         // Register middleware
         $middleware = require __DIR__ . '/../app/middleware.php';
@@ -57,14 +67,6 @@ class TestCase extends PHPUnit_TestCase
         return $app;
     }
 
-    /**
-     * @param string $method
-     * @param string $path
-     * @param array  $headers
-     * @param array  $cookies
-     * @param array  $serverParams
-     * @return Request
-     */
     protected function createRequest(
         string $method,
         string $path,
@@ -73,10 +75,11 @@ class TestCase extends PHPUnit_TestCase
         array $serverParams = []
     ): Request {
         $uri = new Uri('', '', 80, $path);
-        $handle = fopen('php://temp', 'w+');
+        $handle = \fopen('php://temp', 'w+');
         $stream = (new StreamFactory())->createStreamFromResource($handle);
 
         $h = new Headers();
+
         foreach ($headers as $name => $value) {
             $h->addHeader($name, $value);
         }

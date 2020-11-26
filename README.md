@@ -1,42 +1,53 @@
-# Slim Framework 4 Skeleton Application
+# API Web Pdftk
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+## Installation
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
-
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
-## Install the Application
-
-Run this command from the directory in which you want to install your new Slim Framework application.
+Install the package with Composer:
 
 ```bash
-composer create-project slim/slim-skeleton [my-app-name]
+composer require flexphp/pdftk
 ```
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
-
-To run the application in development, you can run these commands 
+### Environment
 
 ```bash
-cd [my-app-name]
-composer start
+cp -p .env.example .env
+vim .env
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
-
-Run this command in the application directory to run the test suite
+### Permissions
 
 ```bash
-composer test
+chgrp www-data -Rf var
+chmod 770 -Rf var
 ```
 
-That's it! Now go build something cool.
+### Vhost
+
+```bash
+Alias / "/var/www/html/public/"
+<Directory "/var/www/html/public">
+    Options -Indexes +FollowSymLinks +MultiViews
+    AllowOverride None
+    Require all granted
+    ErrorDocument 404 /
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteOptions Inherit
+
+        RewriteBase /
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^ index.php [QSA,L]
+    </IfModule>
+</Directory>
+```
+
+## License
+
+Schema is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

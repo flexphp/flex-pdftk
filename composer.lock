@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d205bfcc1b92d1825ec2d287b0e46d5",
+    "content-hash": "a61a6cbae59cd8af8e72031d7cd7ecbd",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -57,6 +57,134 @@
                 "response"
             ],
             "time": "2020-11-24T22:02:12+00:00"
+        },
+        {
+            "name": "flexphp/messages",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flexphp/flex-messages.git",
+                "reference": "171ec6ba26314389924a0badc9427c39d85c718a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flexphp/flex-messages/zipball/171ec6ba26314389924a0badc9427c39d85c718a",
+                "reference": "171ec6ba26314389924a0badc9427c39d85c718a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.8",
+                "phpstan/phpstan": "~0.9",
+                "phpunit/phpunit": "^7.0",
+                "squizlabs/php_codesniffer": "~3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FlexPHP\\Messages\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freddie Gar",
+                    "email": "freddie.gar@outlook.com"
+                }
+            ],
+            "description": "Agnostic messages PHP, any framework",
+            "time": "2020-07-25T16:21:40+00:00"
+        },
+        {
+            "name": "flexphp/repositories",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flexphp/flex-repositories.git",
+                "reference": "86ccd42bbf5d99ad7ae8045ca8684ea357742524"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flexphp/flex-repositories/zipball/86ccd42bbf5d99ad7ae8045ca8684ea357742524",
+                "reference": "86ccd42bbf5d99ad7ae8045ca8684ea357742524",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.8",
+                "phpstan/phpstan": "~0.9",
+                "phpunit/phpunit": "^7.0",
+                "squizlabs/php_codesniffer": "~3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FlexPHP\\Repositories\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freddie Gar",
+                    "email": "freddie.gar@outlook.com"
+                }
+            ],
+            "description": "Agnostic repositories PHP, any framework",
+            "time": "2020-07-25T16:20:24+00:00"
+        },
+        {
+            "name": "flexphp/use-cases",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flexphp/flex-use-cases.git",
+                "reference": "1442c0651368248e01277c843efc456dc6829675"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flexphp/flex-use-cases/zipball/1442c0651368248e01277c843efc456dc6829675",
+                "reference": "1442c0651368248e01277c843efc456dc6829675",
+                "shasum": ""
+            },
+            "require": {
+                "flexphp/messages": "dev-develop",
+                "flexphp/repositories": "dev-develop",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.8",
+                "phpstan/phpstan": "~0.9",
+                "phpunit/phpunit": "^7.0",
+                "squizlabs/php_codesniffer": "~3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FlexPHP\\UseCases\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freddie Gar",
+                    "email": "freddie.gar@outlook.com"
+                }
+            ],
+            "description": "Agnostic use-cases PHP, any framework",
+            "time": "2020-07-25T16:31:21+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -1433,71 +1561,6 @@
                 }
             ],
             "time": "2020-11-10T18:47:58+00:00"
-        },
-        {
-            "name": "jangregor/phpstan-prophecy",
-            "version": "0.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Jan0707/phpstan-prophecy.git",
-                "reference": "f01ca476840c370bbf9c224aed25fca60eecca9d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/f01ca476840c370bbf9c224aed25fca60eecca9d",
-                "reference": "f01ca476840c370bbf9c224aed25fca60eecca9d",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1 || ^8.0",
-                "phpstan/phpstan": "^0.12.6"
-            },
-            "conflict": {
-                "phpspec/prophecy": "<1.7.0,>=2.0.0",
-                "phpunit/phpunit": "<6.0.0,>=10.0.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.1.1",
-                "ergebnis/license": "^1.0.0",
-                "ergebnis/php-cs-fixer-config": "~2.2.0",
-                "phpspec/prophecy": "^1.7.0",
-                "phpunit/phpunit": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "phpstan": {
-                    "includes": [
-                        "extension.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JanGregor\\Prophecy\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Gregor Emge-Triebel",
-                    "email": "jan@jangregor.me"
-                }
-            ],
-            "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
-            "funding": [
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-10-24T15:04:14+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2927,6 +2990,91 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "symfony/var-dumper",
+            "version": "v5.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "4e13f3fcefb1fcaaa5efb5403581406f4e840b9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/4e13f3fcefb1fcaaa5efb5403581406f4e840b9a",
+                "reference": "4e13f3fcefb1fcaaa5efb5403581406f4e840b9a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<5.4.3",
+                "symfony/console": "<4.4"
+            },
+            "require-dev": {
+                "ext-iconv": "*",
+                "symfony/console": "^4.4|^5.0",
+                "symfony/process": "^4.4|^5.0",
+                "twig/twig": "^2.4|^3.0"
+            },
+            "suggest": {
+                "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+                "ext-intl": "To show region name in time zone dump",
+                "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
+            },
+            "bin": [
+                "Resources/bin/var-dump-server"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/functions/dump.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\VarDumper\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony mechanism for exploring and dumping PHP variables",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "debug",
+                "dump"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-27T10:11:13+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.2.0",
             "source": {
@@ -3023,9 +3171,12 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "flexphp/messages": 20,
+        "flexphp/use-cases": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2",

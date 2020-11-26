@@ -7,10 +7,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-use DI\ContainerBuilder;
+namespace Domain\Pdf;
 
-return function (ContainerBuilder $containerBuilder): void {
-    $containerBuilder->addDefinitions([
-        \Domain\Pdf\PdfGateway::class => \DI\autowire(\Domain\Pdf\Gateway\PhpPdftkGateway::class),
-    ]);
-};
+use Domain\Pdf\Request\BackgroundRequest;
+
+interface PdfGateway
+{
+    public function background(BackgroundRequest $request): string;
+}

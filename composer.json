@@ -1,29 +1,11 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": [
-        "microframework",
-        "rest",
-        "router",
-        "psr7"
-    ],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
-        },
-        {
-            "name": "Pierre Berube",
-            "email": "pierre@lgse.com",
-            "homepage": "http://www.lgse.com/"
-        }
-    ],
+    "name": "flexphp/pdftk",
+    "description": "API for Pdftk",
     "require": {
         "php": "^7.2",
         "ext-json": "*",
+        "flexphp/messages": "dev-develop",
+        "flexphp/use-cases": "dev-develop",
         "monolog/monolog": "^2.1",
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.2",
@@ -31,10 +13,10 @@
         "vlucas/phpdotenv": "^5.2"
     },
     "require-dev": {
-        "jangregor/phpstan-prophecy": "^0.8.1",
         "phpstan/extension-installer": "^1.0.5",
         "phpstan/phpstan": "^0.12.52",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "symfony/var-dumper": "^5.1"
     },
     "config": {
         "preferred-install": {
@@ -48,7 +30,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Domain\\": "domain/"
         }
     },
     "autoload-dev": {
@@ -56,8 +39,6 @@
             "Tests\\": "tests/"
         }
     },
-    "scripts": {
-        "start": "php -S localhost:8080 -t public",
-        "test": "phpunit"
-    }
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

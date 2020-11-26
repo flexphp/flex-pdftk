@@ -18,7 +18,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..');
 $dotenv->load();
-$dotenv->required(['APP_ENV', 'APP_DEBUG', 'BASE_URL', 'PDFTK_PATH']);
+$dotenv->required(['APP_ENV', 'BASE_URL', 'PDFTK_PATH']);
 
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();
