@@ -37,8 +37,14 @@
         "phpunit/phpunit": "^8.5"
     },
     "config": {
-        "process-timeout": 0,
-        "sort-packages": true
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "classmap-authoritative": true,
+        "platform": {
+            "php": "7.2.5"
+        }
     },
     "autoload": {
         "psr-4": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc995dbf6c84999a1c4a8df0a0b7473c",
+    "content-hash": "5d205bfcc1b92d1825ec2d287b0e46d5",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -320,26 +320,24 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "2.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "e08a7c87068daeaeef464b95d81643ea530bc535"
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/e08a7c87068daeaeef464b95d81643ea530bc535",
-                "reference": "e08a7c87068daeaeef464b95d81643ea530bc535",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.3",
                 "psr/container": "~1.0"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
-                "mnapoli/hard-mode": "~0.3.0",
-                "phpunit/phpunit": "^9.0"
+                "phpunit/phpunit": "~4.5"
             },
             "type": "library",
             "autoload": {
@@ -361,13 +359,7 @@
                 "invoke",
                 "invoker"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/mnapoli",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-10-12T12:15:50+00:00"
+            "time": "2017-03-20T19:28:22+00:00"
         },
         {
             "name": "php-di/php-di",
@@ -3040,5 +3032,8 @@
         "ext-json": "*"
     },
     "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.2.5"
+    },
     "plugin-api-version": "1.1.0"
 }
