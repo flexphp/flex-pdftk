@@ -1,6 +1,12 @@
-<?php
-declare(strict_types=1);
-
+<?php declare(strict_types=1);
+/*
+ * This file is part of FlexPHP.
+ *
+ * (c) Freddie Gar <freddie.gar@outlook.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 use App\Application\Handlers\HttpErrorHandler;
 use App\Application\Handlers\ShutdownHandler;
 use App\Application\ResponseEmitter\ResponseEmitter;
@@ -10,11 +16,15 @@ use Slim\Factory\ServerRequestCreatorFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..');
+$dotenv->load();
+$dotenv->required(['APP_ENV', 'APP_DEBUG', 'BASE_URL', 'PDFTK_PATH']);
+
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();
 
-if (false) { // Should be set to true in production
-	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
+if (isset($ENV['APP_ENV']) && $ENV['APP_ENV'] === 'prod') {
+    $containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
 }
 
 // Set up settings
@@ -35,6 +45,11 @@ $container = $containerBuilder->build();
 // Instantiate the app
 AppFactory::setContainer($container);
 $app = AppFactory::create();
+
+if (!empty($_ENV['BASE_URL'])) {
+    $app->setBasePath($_ENV['BASE_URL']);
+}
+
 $callableResolver = $app->getCallableResolver();
 
 // Register middleware
@@ -58,7 +73,7 @@ $errorHandler = new HttpErrorHandler($callableResolver, $responseFactory);
 
 // Create Shutdown Handler
 $shutdownHandler = new ShutdownHandler($request, $errorHandler, $displayErrorDetails);
-register_shutdown_function($shutdownHandler);
+\register_shutdown_function($shutdownHandler);
 
 // Add Routing Middleware
 $app->addRoutingMiddleware();
