@@ -12,5 +12,6 @@ use DI\ContainerBuilder;
 return function (ContainerBuilder $containerBuilder): void {
     $containerBuilder->addDefinitions([
         \Domain\Pdf\PdfGateway::class => \DI\autowire(\Domain\Pdf\Gateway\PhpPdftkGateway::class),
+        // \Domain\Pdf\PdfGateway::class => \DI\autowire(\Domain\Pdf\Gateway\CommandPdftkGateway::class),
     ]);
 };

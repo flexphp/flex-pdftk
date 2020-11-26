@@ -6,6 +6,7 @@
         "ext-json": "*",
         "flexphp/messages": "dev-develop",
         "flexphp/use-cases": "dev-develop",
+        "mikehaertl/php-pdftk": "^0.9.1",
         "monolog/monolog": "^2.1",
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.2",

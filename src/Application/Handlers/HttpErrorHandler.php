@@ -11,6 +11,7 @@ namespace App\Application\Handlers;
 
 use App\Application\Actions\ActionError;
 use App\Application\Actions\ActionPayload;
+use LogicException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpException;
@@ -64,6 +65,8 @@ class HttpErrorHandler extends SlimErrorHandler
         $error = new ActionError($statusCode, $type, $description);
         $payload = new ActionPayload($statusCode, null, $error);
         $encodedPayload = \json_encode($payload, \JSON_PRETTY_PRINT);
+
+        $this->logger->error(json_encode($payload));
 
         $response = $this->responseFactory->createResponse($statusCode);
         $response->getBody()->write($encodedPayload);
