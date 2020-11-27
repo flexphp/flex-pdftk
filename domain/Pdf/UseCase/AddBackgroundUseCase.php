@@ -12,6 +12,7 @@ namespace Domain\Pdf\UseCase;
 use Domain\Pdf\Request\BackgroundRequest;
 use Domain\Pdf\Response\BackgroundResponse;
 use FlexPHP\UseCases\UseCase;
+use LogicException;
 
 /**
  * @method \Domain\Pdf\PdfRepository getRepository
@@ -24,6 +25,14 @@ final class AddBackgroundUseCase extends UseCase
      */
     public function execute($request)
     {
+        if ($request->encode !== 'base64') {
+            throw new LogicException(sprintf('Used encode base64, %s is not supported', $request->encode));
+        }
+
+        if (empty($request->background) || empty($request->content)) {
+            throw new LogicException('Background and content are required');
+        }
+
         return new BackgroundResponse($this->getRepository()->background($request));
     }
 }

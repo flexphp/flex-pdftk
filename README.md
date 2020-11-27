@@ -48,6 +48,26 @@ Alias / "/var/www/html/public/"
 </Directory>
 ```
 
+## Commands
+
+### Background
+
+```curl
+curl --location --request POST 'https://api.development.local/pdf/background' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "data": {
+        "type": "pdf",
+        "id": 1,
+        "attributes": {
+            "background": "...base64-content...",
+            "content": "...base64-content...",
+            "encode": "base64"
+        }
+    }
+}'
+```
+
 ## License
 
 Schema is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
