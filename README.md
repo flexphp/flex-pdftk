@@ -77,7 +77,7 @@ curl --location --request POST 'https://api.development.local/pdf/background' \
 #### Response
 
 ```bash
-HTTP/1.1 400 Bad Request
+HTTP/1.1 200 OK
 Content-Type: application/json
 {
     "jsonapi": {
