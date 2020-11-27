@@ -52,10 +52,16 @@ Alias / "/var/www/html/public/"
 
 ### Background
 
-```curl
+#### Request
+
+```bash
 curl --location --request POST 'https://api.development.local/pdf/background' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+    "auth": {
+        "username": "...username...",
+        "password": "...sha256-password..."
+    },
     "data": {
         "type": "pdf",
         "id": 1,
@@ -66,6 +72,28 @@ curl --location --request POST 'https://api.development.local/pdf/background' \
         }
     }
 }'
+```
+
+#### Response
+
+```bash
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+{
+    "jsonapi": {
+        "version": "1.0"
+    },
+    "data": [
+        {
+            "type": "pdf",
+            "id": 1,
+            "attributes": {
+                "content": "...base64-content...",
+                "encode": "base64"
+            }
+        }
+    ]
+}
 ```
 
 ## License
