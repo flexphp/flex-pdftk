@@ -47,6 +47,10 @@ class BackgroundActionTest extends TestCase
 
         $request = $this->createRequest('POST', '/background');
         $request->getBody()->write(\json_encode([
+            'auth' => [
+                'username' => 'test',
+                'password' => \hash('sha256', 'test'),
+            ],
             'data' => [
                 'type' => 'pdf',
                 'id' => ($id = \time()),

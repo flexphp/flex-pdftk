@@ -1,4 +1,5 @@
 .env
+app/passwd.php
 .idea/
 .vscode/
 /coverage/
