@@ -2,10 +2,10 @@
 
 ## Installation
 
-Install the package with Composer:
+Install project with git:
 
 ```bash
-composer require flexphp/pdftk
+git clone git@github.com:flexphp/flex-pdftk.git api-pdftk
 ```
 
 ### Environment
@@ -13,6 +13,13 @@ composer require flexphp/pdftk
 ```bash
 cp -p .env.example .env
 vim .env
+```
+
+#### Enable user for auth
+
+```bash
+cp -p app/passwd.example.php app/passwd.php
+vim app/passwd.php
 ```
 
 ### Permissions
@@ -25,8 +32,8 @@ chmod 770 -Rf var
 ### Vhost
 
 ```bash
-Alias / "/var/www/html/public/"
-<Directory "/var/www/html/public">
+Alias / "/var/www/html/api-psdftk/public/"
+<Directory "/var/www/html/api-psdftk/public">
     Options -Indexes +FollowSymLinks +MultiViews
     AllowOverride None
     Require all granted
