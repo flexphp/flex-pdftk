@@ -10,15 +10,18 @@
 namespace Domain\Pdf;
 
 use Domain\Pdf\Request\BackgroundRequest;
-use FlexPHP\Repositories\Repository;
 
-/**
- * @method PdfGateway getGateway
- */
-final class PdfRepository extends Repository
+final class PdfRepository
 {
+    private PdfGateway $pdfGateway;
+
+    public function __construct(PdfGateway $pdfGateway)
+    {
+        $this->pdfGateway = $pdfGateway;
+    }
+
     public function background(BackgroundRequest $request): string
     {
-        return $this->getGateway()->background($request);
+        return $this->pdfGateway->background($request);
     }
 }
