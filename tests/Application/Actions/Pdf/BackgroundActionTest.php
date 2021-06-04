@@ -46,13 +46,17 @@ class BackgroundActionTest extends TestCase
         $app = $this->getAppInstance();
 
         $request = $this->createRequest('POST', '/background');
-        $request->getBody()->write(json_encode([
+        $request->getBody()->write(\json_encode([
+            'auth' => [
+                'username' => 'test',
+                'password' => \hash('sha256', 'test'),
+            ],
             'data' => [
                 'type' => 'pdf',
                 'id' => ($id = \time()),
                 'attributes' => [
-                    'background' => \base64_encode('../../../Resource/watermark.pdf'),
-                    'content' => \base64_encode('../../../Resource/content.pdf'),
+                    'background' => \base64_encode(\file_get_contents(__DIR__ . '/../../../Resource/watermark.pdf')),
+                    'content' => \base64_encode(\file_get_contents(__DIR__ . '/../../../Resource/content.pdf')),
                     'encode' => 'base64',
                 ],
             ],
@@ -65,7 +69,7 @@ class BackgroundActionTest extends TestCase
             'type' => 'pdf',
             'id' => $id,
             'attributes' => [
-                'content' => '',
+                'content' => \base64_encode(\file_get_contents(__DIR__ . '/../../../Resource/result.pdf')),
                 'encode' => 'base64',
             ],
         ]);

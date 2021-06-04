@@ -10,8 +10,10 @@
 use DI\ContainerBuilder;
 
 return function (ContainerBuilder $containerBuilder): void {
+    // Global Users Object
+    $file = __DIR__ . '/passwd.php';
+
     $containerBuilder->addDefinitions([
-        \Domain\Pdf\PdfGateway::class => \DI\autowire(\Domain\Pdf\Gateway\PhpPdftkGateway::class),
-        // \Domain\Pdf\PdfGateway::class => \DI\autowire(\Domain\Pdf\Gateway\CommandPdftkGateway::class),
+        'credentials' => \file_exists($file) ? require($file) : [],
     ]);
 };

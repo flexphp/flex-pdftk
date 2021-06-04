@@ -40,6 +40,10 @@ class TestCase extends PHPUnit_TestCase
         $settings = require __DIR__ . '/../app/settings.php';
         $settings($containerBuilder);
 
+        // Set up users
+        $credentials = require __DIR__ . '/../app/credentials.php';
+        $credentials($containerBuilder);
+
         // Set up dependencies
         $dependencies = require __DIR__ . '/../app/dependencies.php';
         $dependencies($containerBuilder);

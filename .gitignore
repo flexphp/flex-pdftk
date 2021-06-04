@@ -1,8 +1,10 @@
 .env
+app/passwd.php
 .idea/
 .vscode/
 /coverage/
 /vendor/
 /logs/*
 !/logs/README.md
+.php_cs.cache
 .phpunit.result.cache
